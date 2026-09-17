@@ -1,0 +1,46 @@
+{
+    "schemaVersion": 1,
+    "id": "healthbar",
+    "version": "${version}",
+    "name": "HealthBar",
+    "description": "Will display a health bar on top over other players during gameplay.",
+    "authors": [
+       "Mk098091"
+    ],
+    "contact": {
+       "homepage": "https://modrinth.com/user/MK098091",
+       "sources": "https://github.com/xyzMikah/HealthBar-Tracker-Mod",
+       "issues": "https://github.com/xyzMikah/HealthBar-Tracker-Mod/issues"
+    },
+    "license": "CC0-1.0",
+    "icon": "assets/healthbar/icon.png",
+    "environment": "*",
+    "entrypoints": {
+       "main": [
+          {
+             "value": "com.mk.healthbar.HealthBar",
+             "adapter": "kotlin"
+          }
+       ],
+       "client": [
+          {
+             "value": "com.mk.healthbar.client.HealthBarClient",
+             "adapter": "kotlin"
+          }
+       ]
+    },
+    "mixins": [
+       "healthbar.mixins.json",
+       {
+          "config": "healthbar.client.mixins.json",
+          "environment": "client"
+       }
+    ],
+    "depends": {
+       "fabricloader": ">=0.19.5",
+       "minecraft": "~26.2",
+       "java": ">=25",
+       "fabric-api": "*",
+       "fabric-language-kotlin": "*"
+    }
+}
